@@ -28,7 +28,7 @@ public class ContactsApplication {
 		System.out.println("0: Add New Contact\t\t1: Show All ");
 		System.out.println("2: Search Contact\t\t3: Delete Contact");
 		
-		System.out.println("7: Exit");
+		System.out.println("9: Exit");
 
 		
 		while(true){
@@ -38,7 +38,7 @@ public class ContactsApplication {
 	
 	
 	public static void inputCommand(){
-		System.out.println("\n0:Add 1:All 2:Search 3:Delete 7:EXIT ");
+		System.out.println("\n0:Add 1:All 2:Search 3:Delete 9:EXIT ");
 		Scanner scCommand = new Scanner(System.in);
 		System.out.print("=>");
 		String inputCommand = scCommand.next();
@@ -81,7 +81,7 @@ public class ContactsApplication {
 			
 			System.out.println("Deleted!");
 		}
-		else if(inputCommand.equals("7")){
+		else if(inputCommand.equals("9")){
 			
 			System.out.println("Exit...");
 			System.exit(0);

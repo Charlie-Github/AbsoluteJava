@@ -45,7 +45,7 @@ public class Database {
 			num = aContact.phoneNum;
 			email = aContact.email;
 			
-		    Pattern pattern = Pattern.compile("["+(name)+"]+");
+		    Pattern pattern = Pattern.compile("("+name+")+");
 		    Matcher matchFirst = pattern.matcher(first);
 		    Matcher matchLast = pattern.matcher(last);
 			
