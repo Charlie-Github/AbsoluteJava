@@ -56,7 +56,7 @@ public class ContactsApplication {
 			String num = scCommand.next();
 			System.out.print("Email=>");
 			String email = scCommand.next();
-			createContact(first, last, num, email);
+			contactsDatabase.addContact(first, last, num, email);
 		}
 		else if(inputCommand.equals("1")){
 			System.out.println("Action: Show All");
@@ -64,61 +64,23 @@ public class ContactsApplication {
 			
 		}
 		else if(inputCommand.equals("2")){
-			System.out.println("Action: withdraw");
-			System.out.println("-account number:");
-			System.out.print("=>");
-			int accountNum = scCommand.nextInt();
-
-			System.out.println("-money:");
-			System.out.print("=>");
-			String inputMoney = scCommand.next();
+			System.out.println("Action: Search Contacts");
 			
-			String[] moneyParts = inputMoney.split("\\.");			
-			int dollars = 0;
-			int cents = 0;
-			if(moneyParts.length != 2){
-				dollars = Integer.parseInt(moneyParts[0]);
-				cents = 0;
-			}
-			else{
-				dollars = Integer.parseInt(moneyParts[0]);
-				cents = Integer.parseInt(moneyParts[1]);
-			}
-			
-			if(cents < 10){
-				cents = cents *10;
-			}
-			
-			//withdraw(accountNum,new Money(dollars,cents));
-			System.out.println("Action: withdraw done");
+			System.out.print("Name=>");
+			String name = scCommand.next();		
+			contactsDatabase.searchContacts(name);
 		}
 		else if(inputCommand.equals("3")){
-			System.out.println("Action: check balance");
-			System.out.println("-account number:");
-			System.out.print("=>");
-			int accountNum = scCommand.nextInt();
-			System.out.print("-account " + accountNum +" balance: ");
-			//System.out.println(checkBalance(accountNum));
-			System.out.println("Action: check balance done");
+			System.out.println("Action: delete contact");
+			System.out.print("First Name=>");
+			String first = scCommand.next();
+			System.out.print("Last Name=>");
+			String last = scCommand.next();
+			
+			contactsDatabase.deletContact(first, last);
+			
+			System.out.println("Deleted!");
 		}
-		else if(inputCommand.equals("4")){
-			System.out.println("Action: view history");
-			System.out.println("-account number:");
-			System.out.print("=>");
-			int accountNum = scCommand.nextInt();
-			//viewHistory(accountNum);
-			System.out.println("Action: show done");
-		}
-		else if(inputCommand.equals("5")){
-			System.out.println("Action: calculate total");
-			//calcTotal();
-			System.out.println("Action: calculate done");
-		}
-		else if(inputCommand.equals("6")){
-			System.out.println("Action: show account list");
-			//showAccountList();
-			System.out.println("Action: show done");
-		}			
 		else if(inputCommand.equals("7")){
 			
 			System.out.println("Exit...");
@@ -129,17 +91,4 @@ public class ContactsApplication {
 			System.out.println("Error: Invalid Command");
 		}
 	}
-	
-	public static void createContact(String first, String last, String num, String email){
-		Contacts newContact = new Contacts(first,last,num,email);		
-	}
-	
-	
-	
-	
-
-	
-	
-	
-
 }

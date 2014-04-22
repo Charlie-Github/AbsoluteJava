@@ -65,6 +65,9 @@ public class Database {
 			if (first.equals(aContact.firstName) && last.equals(aContact.lastName)){
 				System.out.print(last+","+first+" has been removed!\n");
 			}			
+			else{
+				System.out.println("No record found.");
+			}
 			
 		}
 	}
