@@ -70,6 +70,7 @@ public class Money {
 			}
 		}	
 		else if(leftDollars >= 0 && rightDollars  >= 0){
+			//Here we need to deal with the situation where amount = 0
 			sumMoney.Dollars = tempLeft.Dollars + tempRight.Dollars;
 			sumMoney.Cents = tempLeft.Cents + tempRight.Cents;
 			if(sumMoney.Cents >= 100){
